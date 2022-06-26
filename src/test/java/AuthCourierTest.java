@@ -1,4 +1,5 @@
 import client.CourierClient;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import model.Courier;
 import model.CourierCredentials;
@@ -42,6 +43,7 @@ public class AuthCourierTest {
     }
 
     @Test
+    @DisplayName("Авторизация существующего курьера, логин и пароль валидны")
     public void authCourierTest() {
         responseLogin = loginCourier(courierCredentials);
 
@@ -50,6 +52,7 @@ public class AuthCourierTest {
     }
 
     @Test
+    @DisplayName("Авторизация курьера с пустым логином")
     public void authCourierWithoutLoginTest() {
         courierCredentials.setLogin("");
         responseLogin = loginCourier(courierCredentials);
@@ -59,6 +62,7 @@ public class AuthCourierTest {
     }
 
     @Test
+    @DisplayName("Авторизация курьера с пустым паролем")
     public void authCourierWithoutPasswordTest() {
         courierCredentials.setPassword("");
         responseLogin = loginCourier(courierCredentials);
@@ -68,6 +72,7 @@ public class AuthCourierTest {
     }
 
     @Test
+    @DisplayName("Авторизация курьера с неверным логином")
     public void authCourierWithInvalidLoginTest() {
         courierCredentials.setLogin(RandomStringUtils.randomAlphabetic(10));
         responseLogin = loginCourier(courierCredentials);
@@ -77,6 +82,7 @@ public class AuthCourierTest {
     }
 
     @Test
+    @DisplayName("Авторизация курьера с неверным паролем")
     public void authCourierWithInvalidPasswordTest() {
         courierCredentials.setPassword(RandomStringUtils.randomAlphabetic(10));
         responseLogin = loginCourier(courierCredentials);
@@ -86,6 +92,7 @@ public class AuthCourierTest {
     }
 
     @Test
+    @DisplayName("Авторизация несуществующего курьера, пароль и логин невалидны")
     public void authCourierWithInvalidDataTest() {
         courierCredentials.setLogin(RandomStringUtils.randomAlphabetic(10));
         courierCredentials.setPassword(RandomStringUtils.randomAlphabetic(10));

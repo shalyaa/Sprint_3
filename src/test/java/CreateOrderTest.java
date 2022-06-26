@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import model.Order;
 import org.junit.Test;
@@ -18,7 +19,7 @@ public class CreateOrderTest {
         this.colors = colors;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0}")
     public static Object[][] getColor() {
         return new Object[][]{
                 {new String[]{"BLACK"}},
@@ -29,6 +30,7 @@ public class CreateOrderTest {
     }
 
     @Test
+    @DisplayName("Проверка создания заказа с разным набором цветов")
     public void checkColorInCreateOrderTest() {
         Order order = Order.getRandomOrder();
         order.setColor(colors);

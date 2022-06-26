@@ -1,5 +1,6 @@
 package client;
 
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import model.Order;
 
@@ -7,6 +8,7 @@ import static io.restassured.RestAssured.given;
 
 public class OrderClient extends BaseApi {
 
+    @Step("Создание заказа")
     public static Response createOrder(Order order) {
         return given()
                 .spec(getRecSpec())
@@ -16,6 +18,7 @@ public class OrderClient extends BaseApi {
 
     }
 
+    @Step("Получение списка заказов")
     public static Response getOrderList() {
         return given()
                 .spec(getRecSpec())

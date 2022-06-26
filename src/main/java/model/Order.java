@@ -3,7 +3,6 @@ package model;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 
-
 public class Order {
     private String firstName;
     private String lastName;

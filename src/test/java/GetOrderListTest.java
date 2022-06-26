@@ -1,3 +1,4 @@
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.junit.Test;
 
@@ -9,6 +10,7 @@ import static org.junit.Assert.assertNotNull;
 public class GetOrderListTest {
 
     @Test
+    @DisplayName("Получение списка заказов")
     public void getOrderListTest() {
         Response responseOrders = getOrderList();
 

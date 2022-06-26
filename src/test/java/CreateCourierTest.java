@@ -1,4 +1,5 @@
 import client.CourierClient;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import model.Courier;
 import model.CourierCredentials;
@@ -39,6 +40,7 @@ public class CreateCourierTest {
     }
 
     @Test
+    @DisplayName("Успешное создание курьера")
     public void createCourierSuccessTest() {
         responseCreate = createCourier(courier);
 
@@ -47,6 +49,7 @@ public class CreateCourierTest {
     }
 
     @Test
+    @DisplayName("Создание двух одинаковых курьеров")
     public void createIdenticalCouriersTest() {
         responseCreate = createCourier(courier);
 
@@ -60,6 +63,7 @@ public class CreateCourierTest {
     }
 
     @Test
+    @DisplayName("Создание двух курьеров с одинаковыми логинами")
     public void createCourierWithSameLoginTest() {
         responseCreate = createCourier(courier);
 
@@ -76,6 +80,7 @@ public class CreateCourierTest {
     }
 
     @Test
+    @DisplayName("Создание курьера без логина")
     public void createCourierWithoutLoginTest() {
         courier.setLogin("");
         responseCreate = createCourier(courier);
@@ -85,6 +90,7 @@ public class CreateCourierTest {
     }
 
     @Test
+    @DisplayName("Создание курьера без пароля")
     public void createCourierWithoutPasswordTest() {
         courier.setPassword("");
         responseCreate = createCourier(courier);
