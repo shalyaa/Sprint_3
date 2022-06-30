@@ -1,4 +1,5 @@
 import client.CourierClient;
+import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import model.Courier;
@@ -44,6 +45,7 @@ public class AuthCourierTest {
 
     @Test
     @DisplayName("Авторизация существующего курьера, логин и пароль валидны")
+    @Description("Логин и пароль валидны")
     public void authCourierTest() {
         responseLogin = loginCourier(courierCredentials);
 
@@ -53,6 +55,7 @@ public class AuthCourierTest {
 
     @Test
     @DisplayName("Авторизация курьера с пустым логином")
+    @Description("Пустой логин")
     public void authCourierWithoutLoginTest() {
         courierCredentials.setLogin("");
         responseLogin = loginCourier(courierCredentials);
